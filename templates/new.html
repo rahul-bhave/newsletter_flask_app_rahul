@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+   <body>
+
+      <h3>Newsletter - Project Work</h3>
+      <hr/>
+
+      {%- for category, message in get_flashed_messages(with_categories = true) %}
+         <div class = "alert alert-danger">
+            {{ message }}
+         </div>
+      {%- endfor %}
+
+      <form action = "{{ request.path }}" method = "post">
+         <label for = "name">name</label><br>
+         <input type = "text" name = "name" placeholder = "name" /><br>
+         <label for = "name">email</label><br>
+         <input type = "text" name = "email" placeholder = "email" /><br>
+         <label for = "department">department</label><br>
+         <input type = "text" name = "department" placeholder = "department" /><br>
+         <input type = "submit" value = "Submit" />
+      </form>
+
+   </body>
+</html>
