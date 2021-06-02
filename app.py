@@ -11,14 +11,20 @@ def new():
             department = request.form['department']
 
             with sql.connect("newsletter.db") as con:
+                con.row_factory = sql.Row
                 cur = con.cursor()
 
-            cur.execute("INSERT INTO employee (name,email, department_id) VALUES (?,?,?)",(name, email, department))
+
+            department_id = cur.execute('SELECT id FROM Department WHERE department_name = (?);',(department,)).fetchone()['id']
+
+
+            cur.execute("INSERT INTO employee (name,email, department_id) VALUES (?,?,?)",(name, email, department_id))
 
             con.commit()
             msg = "Record successfully added"
 
-        except:
+        except Exception as e:
+            print(e)
             con.rollback()
             msg = "error in insert operation"
 
