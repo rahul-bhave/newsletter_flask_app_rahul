@@ -4,10 +4,12 @@ Steps fo application setup:
 2. Create virtual environment.
 3. Setup sqlite db and tables using following steps:
 
-#Steps to create database tables:
+Steps to create database tables:
 
 import sqlite3
+
 conn = sqlite3.connect('newsletter.db')
+
 cursor = conn.cursor()
 
 cursor.execute("DROP TABLE IF EXISTS Employee")
