@@ -1,3 +1,4 @@
+This is an effort to develop CRUD applocation using flask.
 Steps fo application setup:
 
 1. Clone the repo.
