@@ -13,6 +13,7 @@ conn = sqlite3.connect('newsletter.db')
 cursor = conn.cursor()
 
 cursor.execute("DROP TABLE IF EXISTS Employee")
+
 cursor.execute("DROP TABLE IF EXISTS Department")
 
 query = """CREATE TABLE Department (
@@ -21,6 +22,7 @@ query = """CREATE TABLE Department (
 		 )"""
 		 
 cursor.execute(query)
+
 conn.commit()
 
 query = """CREATE TABLE Employee(
@@ -32,15 +34,17 @@ query = """CREATE TABLE Employee(
          )"""
 		 
 cursor.execute(query)
+
 conn.commit()
 
 conn.execute("INSERT INTO Department (id, department_name ) "
              "VALUES (01, 'QA')")
+	     
 conn.execute("INSERT INTO Department (id, department_name ) "
              "VALUES (02, 'Dev')")
 		 
-
 conn.commit()
+
 conn.close()
 
 4. Run python app.python
